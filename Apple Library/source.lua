@@ -7,6 +7,18 @@ local notifs = {}
 local visible = true
 local dbcooper = false
 
+-- Dark mode color scheme
+local darkColors = {
+    background = Color3.fromRGB(30, 30, 30),
+    sidebar = Color3.fromRGB(25, 25, 25),
+    accent = Color3.fromRGB(21, 103, 251),
+    text = Color3.fromRGB(255, 255, 255),
+    textSecondary = Color3.fromRGB(200, 200, 200),
+    button = Color3.fromRGB(45, 45, 45),
+    buttonHover = Color3.fromRGB(55, 55, 55),
+    divider = Color3.fromRGB(60, 60, 60)
+}
+
 local function tp(ins, pos, time, thing)
     game:GetService("TweenService"):Create(ins, TweenInfo.new(time, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut),{Position = pos}):Play()
 end
@@ -52,8 +64,8 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         splash.Name = "splash"
         splash.Parent = scrgui
         splash.AnchorPoint = Vector2.new(0.5, 0.5)
-        splash.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        splash.BackgroundTransparency = 0.600
+        splash.BackgroundColor3 = darkColors.background
+        splash.BackgroundTransparency = 0.0
         splash.Position = UDim2.new(0.5, 0, 2, 0)
         splash.Size = UDim2.new(0, 340, 0, 340)
         splash.Visible = true
@@ -104,8 +116,8 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     main.Name = "main"
     main.Parent = scrgui
     main.AnchorPoint = Vector2.new(0.5, 0.5)
-    main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    main.BackgroundTransparency = 0.150
+    main.BackgroundColor3 = darkColors.background
+    main.BackgroundTransparency = 0.0
     main.Position = UDim2.new(0.5, 0, 2, 0)
     main.Size = UDim2.new(0, 721, 0, 584)
 
@@ -155,7 +167,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     local workarea = Instance.new("Frame")
     workarea.Name = "workarea"
     workarea.Parent = main
-    workarea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    workarea.BackgroundColor3 = darkColors.sidebar
     workarea.Position = UDim2.new(0.36403501, 0, 0, 0)
     workarea.Size = UDim2.new(0, 458, 0, 584)
 
@@ -166,7 +178,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     local workareacornerhider = Instance.new("Frame")
     workareacornerhider.Name = "workareacornerhider"
     workareacornerhider.Parent = workarea
-    workareacornerhider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    workareacornerhider.BackgroundColor3 = darkColors.sidebar
     workareacornerhider.BorderSizePixel = 0
     workareacornerhider.Size = UDim2.new(0, 18, 0.99895674, 0)
 
@@ -176,7 +188,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     local search = Instance.new("Frame")
     search.Name = "search"
     search.Parent = main
-    search.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    search.BackgroundColor3 = darkColors.button
     search.Position = UDim2.new(0.0256588068, 0, 0.0958904102, 0)
     search.Size = UDim2.new(0, 225, 0, 34)
 
@@ -193,7 +205,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     searchicon.Position = UDim2.new(0.0379999988, -2, 0.138999999, 2)
     searchicon.Size = UDim2.new(0, 24, 0, 21)
     searchicon.Image = "rbxassetid://2804603863"
-    searchicon.ImageColor3 = Color3.fromRGB(95, 95, 95)
+    searchicon.ImageColor3 = darkColors.textSecondary
     searchicon.ScaleType = Enum.ScaleType.Fit
 
     local searchtextbox = Instance.new("TextBox")
@@ -208,7 +220,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     searchtextbox.LineHeight = 0.870
     searchtextbox.PlaceholderText = "Search"
     searchtextbox.Text = ""
-    searchtextbox.TextColor3 = Color3.fromRGB(95, 95, 95)
+    searchtextbox.TextColor3 = darkColors.text
     searchtextbox.TextSize = 22
     searchtextbox.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -222,8 +234,8 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     sidebar.Name = "sidebar"
     sidebar.Parent = main
     sidebar.Active = true
-    sidebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    sidebar.BackgroundTransparency = 1
+    sidebar.BackgroundColor3 = darkColors.sidebar
+    sidebar.BackgroundTransparency = 0.1
     sidebar.BorderSizePixel = 0
     sidebar.Position = UDim2.new(0.0249653254, 0, 0.181506842, 0)
     sidebar.Size = UDim2.new(0, 233, 0, 463)
@@ -338,7 +350,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     title.Size = UDim2.new(0, 400, 0, 15)
     title.Font = Enum.Font.Gotham
     title.LineHeight = 1.180
-    title.TextColor3 = Color3.fromRGB(0, 0, 0)
+    title.TextColor3 = darkColors.text
     title.TextSize = 28
     title.TextWrapped = true
     title.TextXAlignment = Enum.TextXAlignment.Left
@@ -348,7 +360,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notif.Name = "notif"
     notif.Parent = main
     notif.AnchorPoint = Vector2.new(0.5, 0.5)
-    notif.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    notif.BackgroundColor3 = darkColors.background
     notif.Position = UDim2.new(0.5, 0, 0.5, 0)
     notif.Size = UDim2.new(0, 304, 0, 362)
     notif.Visible = false
@@ -367,18 +379,18 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notificon.Size = UDim2.new(0, 100, 0, 100)
     notificon.ZIndex = 3
     notificon.Image = "rbxassetid://4871684504"
-    notificon.ImageColor3 = Color3.fromRGB(95, 95, 95)
+    notificon.ImageColor3 = darkColors.textSecondary
 
     local notifbutton1 = Instance.new("TextButton")
     notifbutton1.Name = "notifbutton1"
     notifbutton1.Parent = notif
-    notifbutton1.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
+    notifbutton1.BackgroundColor3 = darkColors.accent
     notifbutton1.Position = UDim2.new(0.0559210554, 0, 0.817679524, 0)
     notifbutton1.Size = UDim2.new(0, 270, 0, 50)
     notifbutton1.ZIndex = 3
     notifbutton1.Font = Enum.Font.Gotham
     notifbutton1.Text = "OK"
-    notifbutton1.TextColor3 = Color3.fromRGB(255, 255, 255)
+    notifbutton1.TextColor3 = darkColors.text
     notifbutton1.TextSize = 21
 
     local uc_12 = Instance.new("UICorner")
@@ -419,7 +431,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notiftitle.ZIndex = 3
     notiftitle.Font = Enum.Font.GothamMedium
     notiftitle.Text = "Notice"
-    notiftitle.TextColor3 = Color3.fromRGB(95, 95, 95)
+    notiftitle.TextColor3 = darkColors.textSecondary
     notiftitle.TextSize = 28
 
     local notiftext = Instance.new("TextLabel")
@@ -432,7 +444,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notiftext.ZIndex = 3
     notiftext.Font = Enum.Font.Gotham
     notiftext.Text = "We would like to contact you regarding your car's extended warranty."
-    notiftext.TextColor3 = Color3.fromRGB(95, 95, 95)
+    notiftext.TextColor3 = darkColors.textSecondary
     notiftext.TextSize = 16
     notiftext.TextWrapped = true
 
@@ -442,7 +454,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notif2.Name = "notif2"
     notif2.Parent = main
     notif2.AnchorPoint = Vector2.new(0.5, 0.5)
-    notif2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    notif2.BackgroundColor3 = darkColors.background
     notif2.Position = UDim2.new(0.5, 0, 0.5, 0)
     notif2.Size = UDim2.new(0, 304, 0, 362)
     notif2.Visible = false
@@ -461,7 +473,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notif2icon.Size = UDim2.new(0, 100, 0, 100)
     notif2icon.ZIndex = 3
     notif2icon.Image = "rbxassetid://12608260095"
-    notif2icon.ImageColor3 = Color3.fromRGB(95, 95, 95)
+    notif2icon.ImageColor3 = darkColors.textSecondary
 
     local notif2title = Instance.new("TextLabel")
     notif2title.Name = "notif2title"
@@ -473,7 +485,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notif2title.ZIndex = 3
     notif2title.Font = Enum.Font.GothamMedium
     notif2title.Text = "Notice"
-    notif2title.TextColor3 = Color3.fromRGB(95, 95, 95)
+    notif2title.TextColor3 = darkColors.textSecondary
     notif2title.TextSize = 28
 
 
@@ -487,7 +499,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     notif2text.ZIndex = 3
     notif2text.Font = Enum.Font.Gotham
     notif2text.Text = "We would like to contact you regarding your car's extended warranty."
-    notif2text.TextColor3 = Color3.fromRGB(95, 95, 95)
+    notif2text.TextColor3 = darkColors.textSecondary
     notif2text.TextSize = 16
     notif2text.TextWrapped = true
 
@@ -495,13 +507,13 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     local notif2button1 = Instance.new("TextButton")
     notif2button1.Name = "notif2button1"
     notif2button1.Parent = notif2
-    notif2button1.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
+    notif2button1.BackgroundColor3 = darkColors.accent
     notif2button1.Position = UDim2.new(0.0559210517, 0, 0.715469658, 0)
     notif2button1.Size = UDim2.new(0, 270, 0, 40)
     notif2button1.ZIndex = 3
     notif2button1.Font = Enum.Font.Gotham
     notif2button1.Text = "Sure!"
-    notif2button1.TextColor3 = Color3.fromRGB(255, 255, 255)
+    notif2button1.TextColor3 = darkColors.text
     notif2button1.TextSize = 21
 
     local uc_15 = Instance.new("UICorner")
@@ -539,14 +551,14 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     local notif2button2 = Instance.new("TextButton")
     notif2button2.Name = "notif2button2"
     notif2button2.Parent = notif2
-    notif2button2.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
-    notif2button2.BackgroundTransparency = 1
+    notif2button2.BackgroundColor3 = darkColors.button
+    notif2button2.BackgroundTransparency = 0
     notif2button2.Position = UDim2.new(0.0526315793, 0, 0.842541456, 0)
     notif2button2.Size = UDim2.new(0, 270, 0, 40)
     notif2button2.ZIndex = 3
     notif2button2.Font = Enum.Font.Gotham
     notif2button2.Text = "Go away."
-    notif2button2.TextColor3 = Color3.fromRGB(95, 95, 95)
+    notif2button2.TextColor3 = darkColors.textSecondary
     notif2button2.TextSize = 21
 
 
@@ -598,15 +610,15 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     function window:TempNotify(text1, text2, icon)
         for b,v in next, scrgui:GetChildren() do
             if v.Name == "tempnotif" then 
-                v.Position += UDim2.new(0,0,0,130)
+                v.Position = v.Position + UDim2.new(0,0,0,130)
             end
         end
         local tempnotif = Instance.new("Frame")
         tempnotif.Name = "tempnotif"
         tempnotif.Parent = scrgui
         tempnotif.AnchorPoint = Vector2.new(0.5, 0.5)
-        tempnotif.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        tempnotif.BackgroundTransparency = 0.150
+        tempnotif.BackgroundColor3 = darkColors.background
+        tempnotif.BackgroundTransparency = 0.0
         tempnotif.Position = UDim2.new(1, -250, 0.0794737339, 0)
         tempnotif.Size = UDim2.new(0, 447, 0, 117)
         tempnotif.Visible = true
@@ -626,7 +638,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         t2.ZIndex = 4
         t2.Font = Enum.Font.Gotham
         t2.Text = text2
-        t2.TextColor3 = Color3.fromRGB(95, 95, 95)
+        t2.TextColor3 = darkColors.textSecondary
         t2.TextSize = 16
         t2.TextWrapped = true
         t2.TextXAlignment = Enum.TextXAlignment.Left
@@ -643,7 +655,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         t1.ZIndex = 4
         t1.Font = Enum.Font.GothamMedium
         t1.Text = text1
-        t1.TextColor3 = Color3.fromRGB(95, 95, 95)
+        t1.TextColor3 = darkColors.textSecondary
         t1.TextSize = 28
         t1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -657,7 +669,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         ticon.Size = UDim2.new(0, 71, 0, 71)
         ticon.ZIndex = 4
         ticon.Image = icon
-        ticon.ImageColor3 = Color3.fromRGB(95, 95, 95)
+        ticon.ImageColor3 = darkColors.textSecondary
         ticon.ScaleType = Enum.ScaleType.Fit
 
 
@@ -727,7 +739,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         sidebardivider.Size = UDim2.new(0, 226, 0, 26)
         sidebardivider.Font = Enum.Font.Gotham
         sidebardivider.Text = name
-        sidebardivider.TextColor3 = Color3.fromRGB(95, 95, 95)
+        sidebardivider.TextColor3 = darkColors.textSecondary
         sidebardivider.TextSize = 21
         sidebardivider.TextWrapped = true
         sidebardivider.TextXAlignment = Enum.TextXAlignment.Left
@@ -738,14 +750,14 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         local sidebar2 = Instance.new("TextButton")
         sidebar2.Name = "sidebar2"
         sidebar2.Parent = sidebar
-        sidebar2.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
-        sidebar2.BackgroundTransparency = 1
+        sidebar2.BackgroundColor3 = darkColors.button
+        sidebar2.BackgroundTransparency = 0.1
         sidebar2.Size = UDim2.new(0, 226, 0, 37)
         sidebar2.ZIndex = 2
         sidebar2.AutoButtonColor = false
         sidebar2.Font = Enum.Font.Gotham
         sidebar2.Text = name
-        sidebar2.TextColor3 = Color3.fromRGB(0, 0, 0)
+        sidebar2.TextColor3 = darkColors.text
         sidebar2.TextSize = 21
         
         local uc_10 = Instance.new("UICorner")
@@ -757,8 +769,8 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         workareamain.Name = "workareamain"
         workareamain.Parent = workarea
         workareamain.Active = true
-        workareamain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        workareamain.BackgroundTransparency = 1
+        workareamain.BackgroundColor3 = darkColors.sidebar
+        workareamain.BackgroundTransparency = 0.1
         workareamain.BorderSizePixel = 0
         workareamain.Position = UDim2.new(0.0393013097, 0, 0.0958904102, 0)
         workareamain.Size = UDim2.new(0, 422, 0, 512)
@@ -778,11 +790,11 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         local sec = {}
         function sec:Select()
             for b, v in next, sections do
-                v.BackgroundTransparency = 1
-                v.TextColor3 = Color3.fromRGB(0, 0, 0)
+                v.BackgroundTransparency = 0.1
+                v.TextColor3 = darkColors.text
             end
             sidebar2.BackgroundTransparency = 0
-            sidebar2.TextColor3 = Color3.fromRGB(255, 255, 255)
+            sidebar2.TextColor3 = darkColors.text
             for b, v in next, workareas do
                 v.Visible = false
             end
@@ -799,7 +811,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             section.Font = Enum.Font.Gotham
             section.LineHeight = 1.180
             section.Text = name
-            section.TextColor3 = Color3.fromRGB(0, 0, 0)
+            section.TextColor3 = darkColors.text
             section.TextSize = 25
             section.TextWrapped = true
             section.TextXAlignment = Enum.TextXAlignment.Left
@@ -810,12 +822,12 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             button.Name = "button"
             button.Text = name
             button.Parent = workareamain
-            button.BackgroundColor3 = Color3.fromRGB(216, 216, 216)
-            button.BackgroundTransparency = 1
+            button.BackgroundColor3 = darkColors.button
+            button.BackgroundTransparency = 0
             button.Size = UDim2.new(0, 418, 0, 37)
             button.ZIndex = 2
             button.Font = Enum.Font.Gotham
-            button.TextColor3 = Color3.fromRGB(21, 103, 251)
+            button.TextColor3 = darkColors.accent
             button.TextSize = 21
 
             local uc_3 = Instance.new("UICorner")
@@ -824,16 +836,23 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
 
             local us = Instance.new("UIStroke", button)
             us.ApplyStrokeMode = "Border"
-            us.Color = Color3.fromRGB(21, 103, 251)
+            us.Color = darkColors.accent
             us.Thickness = 1
 
+            button.MouseEnter:Connect(function()
+                button.BackgroundColor3 = darkColors.buttonHover
+            end)
+            
+            button.MouseLeave:Connect(function()
+                button.BackgroundColor3 = darkColors.button
+            end)
 
             if callback then
                 button.MouseButton1Click:Connect(function() 
                     coroutine.wrap(function()
-                        button.TextSize -= 3
+                        button.TextSize = button.TextSize - 3
                         task.wait(0.06)
-                        button.TextSize += 3
+                        button.TextSize = button.TextSize + 3
                     end)()
                     callback()
                 end)
@@ -849,7 +868,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             label.BorderSizePixel = 2
             label.Size = UDim2.new(0, 418, 0, 37)
             label.Font = Enum.Font.Gotham
-            label.TextColor3 = Color3.fromRGB(95, 95, 95)
+            label.TextColor3 = darkColors.textSecondary
             label.TextSize = 21
             label.TextWrapped = true
             label.Text = name
@@ -866,7 +885,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             toggleswitch.Size = UDim2.new(0, 418, 0, 37)
             toggleswitch.Font = Enum.Font.Gotham
             toggleswitch.Text = name
-            toggleswitch.TextColor3 = Color3.fromRGB(95, 95, 95)
+            toggleswitch.TextColor3 = darkColors.textSecondary
             toggleswitch.TextSize = 21
             toggleswitch.TextWrapped = true
             toggleswitch.TextXAlignment = Enum.TextXAlignment.Left
@@ -877,6 +896,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             Frame.Size = UDim2.new(0, 70, 0, 36)
             Frame.Text=""
             Frame.AutoButtonColor = false
+            Frame.BackgroundColor3 = darkColors.button
 
             local uc_4 = Instance.new("UICorner")
             uc_4.CornerRadius = UDim.new(5, 0)
@@ -884,7 +904,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
 
             local TextButton = Instance.new("TextButton")
             TextButton.Parent = Frame
-            TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton.BackgroundColor3 = darkColors.text
             TextButton.Size = UDim2.new(0, 34, 0, 34)
             TextButton.AutoButtonColor = false
             TextButton.Text = ""
@@ -895,10 +915,10 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
 
             if defaultmode == false then
                 TextButton.Position = UDim2.new(0, 1, 0, 1)
-                Frame.BackgroundColor3 = Color3.fromRGB(216, 216, 216)
+                Frame.BackgroundColor3 = darkColors.button
             else
                 TextButton.Position = UDim2.new(0, 35, 0, 1)
-                Frame.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
+                Frame.BackgroundColor3 = darkColors.accent
             end
 
             Frame.MouseButton1Click:Connect(function()
@@ -910,10 +930,10 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
 
                 if mode then
                     TextButton:TweenPosition(UDim2.new(0, 35, 0, 1), "In", "Sine", 0.1, true)
-                    Frame.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
+                    Frame.BackgroundColor3 = darkColors.accent
                 else
                     TextButton:TweenPosition(UDim2.new(0,1,0,1), "In", "Sine", 0.1, true)
-                    Frame.BackgroundColor3 = Color3.fromRGB(216, 216, 216)
+                    Frame.BackgroundColor3 = darkColors.button
                 end
             end)
             TextButton.MouseButton1Click:Connect(function()
@@ -925,10 +945,10 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
 
                 if mode then
                     TextButton:TweenPosition(UDim2.new(0, 35, 0, 1), "In", "Sine", 0.1, true)
-                    Frame.BackgroundColor3 = Color3.fromRGB(21, 103, 251)
+                    Frame.BackgroundColor3 = darkColors.accent
                 else
                     TextButton:TweenPosition(UDim2.new(0,1,0,1), "In", "Sine", 0.1, true)
-                    Frame.BackgroundColor3 = Color3.fromRGB(216, 216, 216)
+                    Frame.BackgroundColor3 = darkColors.button
                 end
             end)
         end
@@ -943,14 +963,14 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             textfield.Size = UDim2.new(0, 418, 0, 37)
             textfield.Font = Enum.Font.Gotham
             textfield.Text = name
-            textfield.TextColor3 = Color3.fromRGB(95, 95, 95)
+            textfield.TextColor3 = darkColors.textSecondary
             textfield.TextSize = 21
             textfield.TextWrapped = true
             textfield.TextXAlignment = Enum.TextXAlignment.Left
 
             local Frame_2 = Instance.new("Frame")
             Frame_2.Parent = textfield
-            Frame_2.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+            Frame_2.BackgroundColor3 = darkColors.button
             Frame_2.Position = UDim2.new(0.441926777, 0, 0.0270270277, 0)
             Frame_2.Size = UDim2.new(0, 233, 0, 34)
 
@@ -970,10 +990,10 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
             TextBox.ClearTextOnFocus = false
             TextBox.Font = Enum.Font.Gotham
             TextBox.LineHeight = 0.870
-            TextBox.PlaceholderColor3 = Color3.fromRGB(113, 113, 113)
+            TextBox.PlaceholderColor3 = darkColors.textSecondary
             TextBox.PlaceholderText = placeholder or "Type..."
             TextBox.Text = ""
-            TextBox.TextColor3 = Color3.fromRGB(12, 12, 12)
+            TextBox.TextColor3 = darkColors.text
             TextBox.TextSize = 21
             TextBox.TextXAlignment = Enum.TextXAlignment.Left
 
